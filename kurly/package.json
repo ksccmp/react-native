@@ -10,8 +10,15 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@emotion/native": "^11.10.0",
+    "@emotion/react": "^11.10.0",
+    "@react-navigation/bottom-tabs": "^6.3.2",
+    "@react-navigation/material-top-tabs": "^6.2.2",
+    "@react-navigation/native": "^6.0.11",
     "react": "18.0.0",
-    "react-native": "0.69.4"
+    "react-native": "0.69.4",
+    "react-native-pager-view": "^5.4.25",
+    "react-native-tab-view": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
