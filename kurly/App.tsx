@@ -1,26 +1,15 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {ThemeProvider} from '@emotion/react';
 import {NavigationContainer} from '@react-navigation/native';
-import * as React from 'react';
-import {Image} from 'react-native';
-import Home from './src/screens/home';
-import HomeFill from './src/assets/images/home_fill.svg';
-import HomeOutline from './src/assets/images/home_outline.svg';
-
-const Tab = createBottomTabNavigator();
+import React from 'react';
+import BottomNavigator from './src/componentes/navigator/bottomNavigator';
+import theme from './src/styles/theme';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title: 'Home!',
-            tabBarIcon: () => <HomeOutline width={20} height={20} />,
-          }}
-        />
-      </Tab.Navigator>
+      <ThemeProvider theme={theme}>
+        <BottomNavigator />
+      </ThemeProvider>
     </NavigationContainer>
   );
 };

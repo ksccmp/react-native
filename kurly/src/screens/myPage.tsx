@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Text, View} from 'react-native';
 
-const myPage = () => {
+const MyPage = () => {
   return (
     <View>
-      <Text>myPage</Text>
+      <Text>MyPage</Text>
     </View>
   );
 };
 
-export default myPage;
+export default MyPage;
