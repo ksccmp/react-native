@@ -1,12 +1,8 @@
-import * as React from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
+import TopNavigator from '../componentes/navigators/topNavigator';
 
 const Home = () => {
-  return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  );
+  return <TopNavigator />;
 };
 
 export default Home;

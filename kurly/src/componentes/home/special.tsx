@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-const Category = () => {
+const Special = () => {
   return (
     <View>
-      <Text>Category</Text>
+      <Text>Special</Text>
     </View>
   );
 };
 
-export default Category;
+export default Special;

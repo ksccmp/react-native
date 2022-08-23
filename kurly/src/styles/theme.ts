@@ -4,10 +4,13 @@ const theme: Theme = {
   color: {
     primary: 'rgb(95, 0, 128)',
     white: '#ffffff',
+
+    grayscale30: '#c2c5cb',
   },
 
   font: {
     size: {
+      xSmall: 12,
       small: 16,
     },
 

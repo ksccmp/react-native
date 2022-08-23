@@ -100,5 +100,5 @@ const PlaceIcon = styled(Place)`
 `;
 
 const KurlyIcon = styled(Kurly)`
-  margin-left: 12px;
+  margin-left: 14px;
 `;
