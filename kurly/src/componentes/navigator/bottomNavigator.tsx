@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import React, {useEffect} from 'react';
+import React from 'react';
 import Home from '../../screens/home';
 import Category from '../../screens/category';
 import MyPage from '../../screens/myPage';
@@ -13,8 +13,8 @@ import SearchOutline from '../../assets/images/search_outline.svg';
 import UserOutline from '../../assets/images/user_outline.svg';
 import Cart from '../../assets/images/cart.svg';
 import Place from '../../assets/images/place.svg';
+import Kurly from '../../assets/images/kurly.svg';
 import theme from '../../styles/theme';
-import {Image, View} from 'react-native';
 import styled from '@emotion/native';
 
 const BottomNavigator = () => {
@@ -26,6 +26,7 @@ const BottomNavigator = () => {
         tabBarShowLabel: false,
         headerStyle: {
           backgroundColor: theme.color.primary,
+          height: 44,
         },
         headerTitleStyle: {
           fontSize: theme.font.size.small,
@@ -46,6 +47,12 @@ const BottomNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: props => (props.focused ? <HomeFill /> : <HomeOutline />),
+          headerTitleStyle: {
+            fontSize: 0,
+          },
+          headerLeft: () => {
+            return <KurlyIcon />;
+          },
         }}
       />
 
@@ -90,4 +97,8 @@ const HeaderRight = styled.View`
 
 const PlaceIcon = styled(Place)`
   margin-right: 12px;
+`;
+
+const KurlyIcon = styled(Kurly)`
+  margin-left: 12px;
 `;
