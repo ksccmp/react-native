@@ -3,7 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
 import {Image} from 'react-native';
 import Home from './src/screens/home';
-import homeOutline from './src/assets/images/home_fill.svg';
+import HomeFill from './src/assets/images/home_fill.svg';
+import HomeOutline from './src/assets/images/home_outline.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,9 +17,7 @@ const App = () => {
           component={Home}
           options={{
             title: 'Home!',
-            tabBarIcon: () => (
-              <Image source={homeOutline} style={{width: 20, height: 20}} />
-            ),
+            tabBarIcon: () => <HomeOutline width={20} height={20} />,
           }}
         />
       </Tab.Navigator>
