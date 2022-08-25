@@ -12,6 +12,7 @@ const theme: Theme = {
     size: {
       xSmall: 12,
       small: 16,
+      medium: 18,
     },
 
     weight: {

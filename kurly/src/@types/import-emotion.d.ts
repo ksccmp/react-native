@@ -13,6 +13,7 @@ declare module '@emotion/react' {
       size: {
         xSmall: number;
         small: number;
+        medium: number;
       };
 
       weight: {
