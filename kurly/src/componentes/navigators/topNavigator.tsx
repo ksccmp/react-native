@@ -14,12 +14,12 @@ const TopNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          height: 36,
+          height: 42,
         },
         tabBarLabelStyle: {
           fontSize: theme.font.size.xSmall,
           fontWeight: theme.font.weight.bold,
-          top: -6,
+          top: -3,
         },
         tabBarIndicatorStyle: {
           backgroundColor: theme.color.primary,
