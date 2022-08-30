@@ -15,9 +15,9 @@ interface Props {
 
 const Text = styled(Txt)<Props>`
   ${props => css`
-    ${props.color && `color: ${props.color};`}
-    ${props.size && `font-size: ${props.size};`}
-    ${props.weight && `font-weight: ${props.weight};`}
+    ${props.color && `color: ${props.theme.color[props.color]};`}
+    ${props.size && `font-size: ${props.theme.font.size[props.size]}px;`}
+    ${props.weight && `font-weight: ${props.theme.font.weight[props.weight]};`}
   `}
 
   ${props => {

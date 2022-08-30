@@ -1,16 +1,6 @@
 import styled, {css} from '@emotion/native';
-import React, {useEffect, useRef, useState} from 'react';
-import {
-  Dimensions,
-  FlatList,
-  Image,
-  ImageSourcePropType,
-  ImageURISource,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
+import {FlatList, ImageSourcePropType, ImageURISource} from 'react-native';
 import banner_1 from '../../assets/images/banner_1.webp';
 import banner_2 from '../../assets/images/banner_2.webp';
 import banner_3 from '../../assets/images/banner_3.webp';
@@ -38,7 +28,7 @@ const Recommend = () => {
     banner_5,
   ]);
 
-  const [productList, setProductList] = useState<Product[]>([
+  const [productList] = useState<Product[]>([
     {
       name: '[그릭슈바인] 미니핫도그 10입',
       salePrice: 8900,
