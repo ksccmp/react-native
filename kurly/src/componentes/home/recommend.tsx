@@ -15,6 +15,7 @@ import {Product} from '../../interfaces/product';
 import Text from '../atoms/text';
 import Carousel from '../molecules/carousel';
 import ProductCard from '../molecules/productCard';
+import ProductCardList from '../organisms/productCarList';
 
 const Recommend = () => {
   /**
@@ -64,18 +65,8 @@ const Recommend = () => {
   return (
     <Wrapper>
       <Carousel imageList={bannerImageList} />
-
       <ProductContainer>
-        <Title color="black" size="medium" weight="bold">
-          이 상품 어때요?
-        </Title>
-
-        <FlatList
-          data={productList}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => <ProductCard product={item} />}
-        />
+        <ProductCardList title="이 상품 어때요?" productList={productList} />
       </ProductContainer>
     </Wrapper>
   );
@@ -90,10 +81,5 @@ const Wrapper = styled.ScrollView`
 `;
 
 const ProductContainer = styled.View`
-  padding: 20px;
-  margin: 12px 0;
-`;
-
-const Title = styled(Text)`
-  margin-bottom: 12px;
+  padding: 0 20px;
 `;
