@@ -30,6 +30,7 @@ const Carousel = (props: Props) => {
    */
   const timerRef = useRef<number>();
   const flatListRef = useRef<FlatList>(null);
+  const prevImageIndexRef = useRef<number>(0);
 
   /**
    * useEffect
@@ -40,10 +41,30 @@ const Carousel = (props: Props) => {
 
   useEffect(() => {
     if (flatListRef.current) {
-      flatListRef.current.scrollToIndex({
-        index: imageIndex,
-        animated: true,
-      });
+      if (
+        imageIndex % props.imageList.length !==
+        prevImageIndexRef.current % props.imageList.length
+      ) {
+        prevImageIndexRef.current = imageIndex;
+
+        flatListRef.current.scrollToIndex({
+          index: imageIndex,
+          animated: true,
+        });
+
+        setTimeout(() => {
+          if (flatListRef.current) {
+            const changeIndex =
+              (imageIndex % props.imageList.length) + props.imageList.length;
+            flatListRef.current.scrollToIndex({
+              index: changeIndex,
+              animated: false,
+            });
+
+            setImageIndex(changeIndex);
+          }
+        }, 300);
+      }
     }
   }, [imageIndex]);
 
@@ -62,11 +83,11 @@ const Carousel = (props: Props) => {
       const gap = 80;
 
       if (offsetX < useScreen.screenWidth * imageIndex - gap) {
-        setImageIndex(
-          (imageIndex - 1 + props.imageList.length) % props.imageList.length,
-        );
+        const prevIndex = getPrevIndex(imageIndex);
+        setImageIndex(prevIndex);
       } else if (offsetX > useScreen.screenWidth * imageIndex + gap) {
-        setImageIndex((imageIndex + 1) % props.imageList.length);
+        const nextIndex = getNextIndex(imageIndex);
+        setImageIndex(nextIndex);
       } else {
         setImageIndex(imageIndex);
       }
@@ -84,15 +105,29 @@ const Carousel = (props: Props) => {
     }
 
     timerRef.current = setInterval(() => {
-      setImageIndex(prev => (prev + 1) % props.imageList.length);
+      setImageIndex(prev => prev + 1);
     }, 3000);
+  };
+
+  /**
+   * getNextIndex
+   */
+  const getNextIndex = (index: number) => {
+    return index + 1;
+  };
+
+  /**
+   * getPrevIndex
+   */
+  const getPrevIndex = (index: number) => {
+    return index - 1;
   };
 
   return (
     <Wrapper>
       <FlatList
         ref={flatListRef}
-        data={props.imageList}
+        data={[...props.imageList, ...props.imageList, ...props.imageList]}
         horizontal // 수평으로 보이게 하기
         pagingEnabled // 페이징 가능하게 만들기
         showsHorizontalScrollIndicator={false} // 스크롤 보이지 않게 하기
@@ -111,7 +146,7 @@ const Carousel = (props: Props) => {
 
       <IndicatorContainer>
         <Indicator>
-          {imageIndex + 1}/{props.imageList.length}
+          {(imageIndex % props.imageList.length) + 1}/{props.imageList.length}
         </Indicator>
       </IndicatorContainer>
     </Wrapper>

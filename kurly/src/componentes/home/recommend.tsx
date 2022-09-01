@@ -1,6 +1,6 @@
 import styled, {css} from '@emotion/native';
 import React, {useState} from 'react';
-import {FlatList, ImageSourcePropType, ImageURISource} from 'react-native';
+import {ImageSourcePropType, ImageURISource} from 'react-native';
 import banner_1 from '../../assets/images/banner_1.webp';
 import banner_2 from '../../assets/images/banner_2.webp';
 import banner_3 from '../../assets/images/banner_3.webp';
@@ -12,9 +12,7 @@ import product_3 from '../../assets/images/product_3.webp';
 import product_4 from '../../assets/images/product_4.webp';
 import product_5 from '../../assets/images/product_5.webp';
 import {Product} from '../../interfaces/product';
-import Text from '../atoms/text';
 import Carousel from '../molecules/carousel';
-import ProductCard from '../molecules/productCard';
 import ProductCardList from '../organisms/productCarList';
 
 const Recommend = () => {
